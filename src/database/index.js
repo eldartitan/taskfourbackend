@@ -1,12 +1,7 @@
 const mongoose = require("mongoose");
 
-const username = "myadmin";
-const password = "root";
-const cluster = "cluster0.rikqx0b";
-const dbname = "taskfour";
-
 mongoose.connect(
-  `mongodb+srv://${username}:${password}@${cluster}.mongodb.net/${dbname}?retryWrites=true&w=majority`,
+  `mongodb+srv://myadmin:root@cluster0.rikqx0b.mongodb.net/taskfour?retryWrites=true&w=majority`,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,

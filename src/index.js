@@ -30,7 +30,7 @@ app.use(
     resave: true,
     saveUninitialized: false,
     store: MongoStore.create({
-      mongoUrl: 'mongodb://localhost:27017/expressjs_tutorial',
+      mongoUrl: 'mongodb+srv://myadmin:root@cluster0.rikqx0b.mongodb.net',
     }),
   })
 );
