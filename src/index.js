@@ -12,11 +12,11 @@ const usersRoute = require('./routes/users');
 
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 const SECRETCODE = 'ASDAHDFLSJHFVSHDFKBDFKJBSDKJFBSKDJF';
 app.use(
   cors({
-    origin: "http://localhost:3000", // <-- location of the react app were connecting to
+    origin: "https://taskfourclient.up.railway.app", // <-- location of the react app were connecting to
     credentials: true,
   })
 );
