@@ -10,13 +10,13 @@ require('./database');
 const authRoute = require('./routes/auth');
 const usersRoute = require('./routes/users');
 
-
 const app = express();
 const PORT = process.env.PORT || 3001;
 const SECRETCODE = 'ASDAHDFLSJHFVSHDFKBDFKJBSDKJFBSKDJF';
 app.use(
   cors({
     origin: "https://taskfourclient.up.railway.app", // <-- location of the react app were connecting to
+    // origin: "http://localhost:3000",
     credentials: true,
   })
 );

@@ -1,13 +1,14 @@
 const { Router } = require("express");
 const passport = require("passport");
 const User = require("../database/schemas/User");
-const { hashPassword, comparePassword } = require("../utils/helpers");
+const { hashPassword } = require("../utils/helpers");
 
 const router = Router();
 
 router.post("/login", passport.authenticate("local"), async (req, res) => {
   console.log("Logged In");
-  res.sendStatus(200);
+  console.log(req.user.id);
+  res.status(200).send(req.user.id);
 });
 
 router.get("/logout", function (req, res) {
@@ -22,7 +23,6 @@ router.post("/register", async (request, response) => {
     response.status(400).send({ msg: "User already exists!" });
   } else {
     const password = hashPassword(request.body.password);
-    console.log(password + " PASSWORD");
     try {
       const newUser = await User.create({ username, password, email });
       response.sendStatus(201);
