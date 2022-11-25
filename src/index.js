@@ -30,7 +30,7 @@ app.use(
     resave: true,
     saveUninitialized: false,
     store: MongoStore.create({
-      mongoUrl: 'mongodb+srv://myadmin:root@cluster0.rikqx0b.mongodb.net',
+      mongoUrl: 'mongodb+srv://myadmin:root@cluster0.rikqx0b.mongodb.net/?retryWrites=true&w=majority',
     }),
   })
 );
@@ -38,7 +38,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.get("/test", (req, res) => {
-  res.send("it's working.")
+  res.send("it's alive")
 })
 
 app.use('/api/auth', authRoute);

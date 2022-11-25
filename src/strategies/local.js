@@ -19,7 +19,7 @@ passport.deserializeUser(async (id, done) => {
     done(null, user);
   } catch (err) {
     console.log(err);
-    done(err, null);
+    done(err, null, { message: err.message });
   }
 });
 
@@ -43,11 +43,11 @@ passport.use(
           done(null, userDB);
         } else {
           console.log("Invalid Authentication");
-          done(null, null);
+          done(null, null, {message: "Invalid Authentication"});
         }
       } catch (err) {
         console.log(err);
-        done(err, null);
+        done(err, null, {message: err.message});
       }
     }
   )
